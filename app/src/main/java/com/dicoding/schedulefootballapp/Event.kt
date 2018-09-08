@@ -4,98 +4,98 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class Event(
-        @SerializedName("intHomeShots")
-        val intHomeShots: Any? = null,
-
-        @SerializedName("strHomeLineupDefense")
-        val strHomeLineupDefense: String? = null,
-
-        @SerializedName("strAwayLineupSubstitutes")
-        val strAwayLineupSubstitutes: String? = null,
-
-        @SerializedName("strHomeLineupForward")
-        val strHomeLineupForward: String? = null,
-
-        @SerializedName("strHomeGoalDetails")
-        val strHomeGoalDetails: String? = null,
-
-        @SerializedName("strAwayLineupGoalkeeper")
-        val strAwayLineupGoalkeeper: String? = null,
-
-        @SerializedName("strAwayLineupMidfield")
-        val strAwayLineupMidfield: String? = null,
-
         @SerializedName("idEvent")
-        val idEvent: String? = null,
-
-        @SerializedName("strHomeYellowCards")
-        val strHomeYellowCards: String? = null,
+        val eventId: String? = null,
 
         @SerializedName("idHomeTeam")
-        val idHomeTeam: String? = null,
+        val homeTeamId: String? = null,
 
-        @SerializedName("intHomeScore")
-        val intHomeScore: String? = null,
+        @SerializedName("idAwayTeam")
+        val awayTeamId: String? = null,
 
         @SerializedName("dateEvent")
-        val dateEvent: String? = null,
-
-        @SerializedName("strAwayTeam")
-        val strAwayTeam: String? = null,
-
-        @SerializedName("strHomeLineupMidfield")
-        val strHomeLineupMidfield: String? = null,
+        val eventDate: String? = null,
 
         @SerializedName("strDate")
         val strDate: String? = null,
 
-        @SerializedName("strHomeFormation")
-        val strHomeFormation: String? = null,
-
-        @SerializedName("idAwayTeam")
-        val idAwayTeam: String? = null,
-
-        @SerializedName("strAwayRedCards")
-        val strAwayRedCards: String? = null,
-
-
-        @SerializedName("intAwayShots")
-        val intAwayShots: Any? = null,
-
-
         @SerializedName("strTime")
         val strTime: String? = null,
 
-        @SerializedName("strAwayGoalDetails")
-        val strAwayGoalDetails: String? = null,
 
-        @SerializedName("strAwayLineupForward")
-        val strAwayLineupForward: String? = null,
+        @SerializedName("intHomeScore")
+        val intHomeScore: String? = null,
+
+        @SerializedName("strHomeYellowCards")
+        val strHomeYellowCards: String? = null,
 
         @SerializedName("strHomeRedCards")
         val strHomeRedCards: String? = null,
 
-        @SerializedName("strHomeLineupGoalkeeper")
-        val strHomeLineupGoalkeeper: String? = null,
+        @SerializedName("strHomeGoalDetails")
+        val strHomeGoal: String? = null,
 
-        @SerializedName("strHomeLineupSubstitutes")
-        val strHomeLineupSubstitutes: String? = null,
-
-        @SerializedName("strAwayFormation")
-        val strAwayFormation: String? = null,
-
-        @SerializedName("strAwayYellowCards")
-        val strAwayYellowCards: String? = null,
-
-        @SerializedName("strAwayLineupDefense")
-        val strAwayLineupDefense: String? = null,
+        @SerializedName("intHomeShots")
+        val intHomeShot: Any? = null,
 
         @SerializedName("strHomeTeam")
         val strHomeTeam: String? = null,
 
+        @SerializedName("strHomeFormation")
+        val strHomeFormation: String? = null,
+
+        @SerializedName("strHomeLineupGoalkeeper")
+        val strHomeGoalkeeper: String? = null,
+
+        @SerializedName("strHomeLineupDefense")
+        val strHomeDefense: String? = null,
+
+        @SerializedName("strHomeLineupMidfield")
+        val strHomeMidfield: String? = null,
+
+        @SerializedName("strHomeLineupForward")
+        val strHomeForward: String? = null,
+
+        @SerializedName("strHomeLineupSubstitutes")
+        val strHomeSubstitutes: String? = null,
+
 
         @SerializedName("intAwayScore")
-        val intAwayScore: String? = null
+        val intAwayScore: String? = null,
+
+        @SerializedName("strAwayYellowCards")
+        val strAwayYellowCards: String? = null,
+
+        @SerializedName("strAwayRedCards")
+        val strAwayRedCards: String? = null,
+
+        @SerializedName("strAwayGoalDetails")
+        val strAwayGoal: String? = null,
+
+        @SerializedName("intAwayShots")
+        val intAwayShot: Any? = null,
+
+        @SerializedName("strAwayTeam")
+        val strAwayTeam: String? = null,
+
+        @SerializedName("strAwayFormation")
+        val strAwayFormation: String? = null,
+
+        @SerializedName("strAwayLineupGoalkeeper")
+        val strAwayGoalkeeper: String? = null,
+
+        @SerializedName("strAwayLineupDefense")
+        val strAwayDefense: String? = null,
+
+        @SerializedName("strAwayLineupMidfield")
+        val strAwayMidfield: String? = null,
+
+        @SerializedName("strAwayLineupForward")
+        val strAwayForward: String? = null,
+
+        @SerializedName("strAwayLineupSubstitutes")
+        val strAwaySubstitutes: String? = null
+
 ) : Serializable
 
 data class EventResponse(val events: List<Event>)

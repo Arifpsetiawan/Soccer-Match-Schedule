@@ -5,13 +5,13 @@ import java.io.Serializable
 
 data class League(
         @SerializedName("idLeague")
-        val leagueId: String? = null,
+        val leagueMain: String? = null,
 
         @SerializedName("strLeague")
-        val leagueName: String? = null,
+        val leagueNameMain: String? = null,
 
         @SerializedName("strLeagueAlternate")
-        val alternateName: String? = null,
+        val alternateLeagueName: String? = null,
 
         @SerializedName("strSport")
         val type: String? = null

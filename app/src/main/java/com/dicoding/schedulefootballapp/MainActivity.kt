@@ -37,16 +37,16 @@ class MainActivity : AppCompatActivity(), MainView, AnkoLogger {
             startActivity(intent)
         }
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = recyclerAdapter
-        swipeRefresh.setColorSchemeResources(
+        recycler_view.layoutManager = LinearLayoutManager(this)
+        recycler_view.adapter = recyclerAdapter
+        swipe_refresh.setColorSchemeResources(
                 android.R.color.holo_red_dark,
                 android.R.color.holo_green_dark,
                 android.R.color.holo_blue_dark,
                 android.R.color.holo_orange_dark,
                 android.R.color.holo_blue_bright)
 
-        swipeRefresh.onRefresh {
+        swipe_refresh.onRefresh {
             if (status == 1) {
                 presenter.getLastMatch(leagueId)
             } else if (status == 2) {
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), MainView, AnkoLogger {
             }
         }
 
-        bottomNav.setOnNavigationItemSelectedListener {
+        bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.action_next -> {
                     presenter.getNextMatch(leagueId)
@@ -73,8 +73,8 @@ class MainActivity : AppCompatActivity(), MainView, AnkoLogger {
         }
 
         spinnerAdapeter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, leagueNames)
-        spLeague.adapter = spinnerAdapeter
-        spLeague.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spinner.adapter = spinnerAdapeter
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 leagueId = leagueIds[position]
@@ -90,20 +90,20 @@ class MainActivity : AppCompatActivity(), MainView, AnkoLogger {
     }
 
     override fun showLoading() {
-        swipeRefresh.isRefreshing = true
+        swipe_refresh.isRefreshing = true
     }
 
     override fun hideLoading() {
-        swipeRefresh.isRefreshing = false
+        swipe_refresh.isRefreshing = false
     }
 
     override fun showTeamList(teams: List<Team>) {
-        swipeRefresh.isRefreshing = false
-        info { "team: " + teams[0].teamName }
+        swipe_refresh.isRefreshing = false
+        info { "team: " + teams[0].teamNameMain }
     }
 
     override fun showMatchList(events: List<Event>) {
-        swipeRefresh.isRefreshing = false
+        swipe_refresh.isRefreshing = false
         this.events.clear()
         this.events.addAll(events)
         recyclerAdapter.notifyDataSetChanged()
@@ -113,8 +113,8 @@ class MainActivity : AppCompatActivity(), MainView, AnkoLogger {
         leagueNames.clear()
         leagueIds.clear()
         for (league in leagues) {
-            leagueNames.add(league.leagueName!!)
-            leagueIds.add(league.leagueId!!)
+            leagueNames.add(league.leagueNameMain!!)
+            leagueIds.add(league.leagueMain!!)
         }
         spinnerAdapeter.notifyDataSetChanged()
 

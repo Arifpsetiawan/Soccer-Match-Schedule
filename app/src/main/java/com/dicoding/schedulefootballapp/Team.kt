@@ -4,13 +4,13 @@ import com.google.gson.annotations.SerializedName
 
 data class Team(
         @SerializedName("idTeam")
-        val teamId: String? = null,
+        val teamMain: String? = null,
 
         @SerializedName("strTeam")
-        val teamName: String? = null,
+        val teamNameMain: String? = null,
 
         @SerializedName("strTeamBadge")
-        val teamBadge: String? = null
+        val teamLogo: String? = null
 )
 
 data class TeamResonse(val teams: List<Team>)

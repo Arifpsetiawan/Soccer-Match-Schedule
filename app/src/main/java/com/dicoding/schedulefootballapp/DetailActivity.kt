@@ -7,7 +7,6 @@ import kotlinx.android.synthetic.main.match_detail.*
 
 class DetailActivity : AppCompatActivity(), DetailView {
 
-
     lateinit var event: Event
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,28 +21,28 @@ class DetailActivity : AppCompatActivity(), DetailView {
     }
 
     private fun withDetail() {
-        date.text = event.dateEvent ?: " "
-        teamHome.text = event.strHomeTeam ?: " "
-        scoreHome.text = event.intHomeScore ?: " "
-        homeFormation.text = event.strHomeFormation ?: " "
-        homeGoals.text = parserGoal(event.strHomeGoalDetails ?: " ")
-        homeShots.text = event.intHomeShots?.toString()
-        homeGk.text = parserGoal(event.strHomeLineupGoalkeeper ?: " ")
-        homeDef.text = parser(event.strHomeLineupDefense ?: " ")
-        homeMdf.text = parser(event.strHomeLineupMidfield ?: " ")
-        homeOfen.text = parser(event.strHomeLineupForward ?: " ")
-        homeSubs.text = parser(event.strHomeLineupSubstitutes ?: " ")
+        date.text = event.eventDate ?: " "
+        team_home.text = event.strHomeTeam ?: " "
+        score_home.text = event.intHomeScore ?: " "
+        home_formation.text = event.strHomeFormation ?: " "
+        home_goal.text = parserGoal(event.strHomeGoal ?: " ")
+        home_shot.text = event.intHomeShot?.toString()
+        home_goalkeeper.text = parserGoal(event.strHomeGoalkeeper ?: " ")
+        home_defense.text = parser(event.strHomeDefense ?: " ")
+        home_midlefield.text = parser(event.strHomeMidfield ?: " ")
+        home_forward.text = parser(event.strHomeForward ?: " ")
+        home_subtituties.text = parser(event.strHomeSubstitutes ?: " ")
 
-        teamAway.text = event.strAwayTeam ?: " "
-        scoreAway.text = event.intAwayScore ?: " "
-        awayFormation.text = event.strAwayFormation ?: " "
-        awayGoals.text = parserGoal(event.strAwayGoalDetails ?: " ")
-        awayShots.text = event.intAwayShots?.toString()
-        awayGk.text = parserGoal(event.strAwayLineupGoalkeeper ?: " ")
-        awayDef.text = parser(event.strAwayLineupDefense ?: " ")
-        awayMdf.text = parser(event.strAwayLineupMidfield ?: " ")
-        awayOfen.text = parser(event.strAwayLineupForward ?: " ")
-        awaySubs.text = parser(event.strAwayLineupSubstitutes ?: " ")
+        team_away.text = event.strAwayTeam ?: " "
+        score_away.text = event.intAwayScore ?: " "
+        away_formation.text = event.strAwayFormation ?: " "
+        away_goal.text = parserGoal(event.strAwayGoal ?: " ")
+        away_shot.text = event.intAwayShot?.toString()
+        away_goalkeeper.text = parserGoal(event.strAwayGoalkeeper ?: " ")
+        away_defense.text = parser(event.strAwayDefense ?: " ")
+        away_midlefield.text = parser(event.strAwayMidfield ?: " ")
+        away_forward.text = parser(event.strAwayForward ?: " ")
+        away_subtituties.text = parser(event.strAwaySubstitutes ?: " ")
 
     }
 
@@ -55,11 +54,11 @@ class DetailActivity : AppCompatActivity(), DetailView {
         return input.replace("; ", "\n", false)
     }
 
-    override fun showTeamEmblem(team: Team?) {
-        if (team?.teamName.equals(event.strHomeTeam)) {
-            Glide.with(this).load(team?.teamBadge).into(homeLogo)
-        } else if (team?.teamName.equals(event.strAwayTeam)) {
-            Glide.with(this).load(team?.teamBadge).into(awayLogo)
+    override fun showTeamLogo(team: Team?) {
+        if (team?.teamNameMain.equals(event.strHomeTeam)) {
+            Glide.with(getApplicationContext()).load(team?.teamLogo).into(logo_home)
+        } else if (team?.teamNameMain.equals(event.strAwayTeam)) {
+            Glide.with(getApplicationContext()).load(team?.teamLogo).into(logo_away)
         }
 
     }

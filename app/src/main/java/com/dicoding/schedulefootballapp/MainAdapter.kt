@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.match_detail.view.*
 import kotlinx.android.synthetic.main.match_list.view.*
 
 class MainAdapter(private val context: Context, private val events: List<Event>, private val listener: (Event) -> Unit) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
@@ -26,7 +25,7 @@ class MainAdapter(private val context: Context, private val events: List<Event>,
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItem(event: Event, listener: (Event) -> Unit) {
 
-            itemView.date.text = event.dateEvent
+            itemView.dateMatch.text = event.eventDate
             itemView.homeTeam.text = event.strHomeTeam
             itemView.homeScore.text = event.intHomeScore
             itemView.awayTeam.text = event.strAwayTeam

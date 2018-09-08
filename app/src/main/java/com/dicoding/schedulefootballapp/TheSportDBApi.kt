@@ -3,14 +3,14 @@ package com.dicoding.schedulefootballapp
 import android.net.Uri
 
 object TheSportDBApi {
-    fun getSpecificTeam(teamName: String?): String {
+    fun getSpecificTeam(teamNameMain: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
                 .appendPath("api")
                 .appendPath("v1")
                 .appendPath("json")
                 .appendPath(BuildConfig.TSDB_API_KEY)
                 .appendPath("searchteams.php")
-                .appendQueryParameter("t", teamName)
+                .appendQueryParameter("t", teamNameMain)
                 .build()
                 .toString()
     }
@@ -26,26 +26,26 @@ object TheSportDBApi {
                 .toString()
     }
 
-    fun getPastMatch(leagueId: String?): String {
+    fun getPastMatch(leagueMain: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
                 .appendPath("api")
                 .appendPath("v1")
                 .appendPath("json")
                 .appendPath(BuildConfig.TSDB_API_KEY)
                 .appendPath("eventspastleague.php")
-                .appendQueryParameter("id", leagueId)
+                .appendQueryParameter("id", leagueMain)
                 .build()
                 .toString()
     }
 
-    fun getNextMatch(leagueId: String?): String {
+    fun getNextMatch(leagueMain: String?): String {
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
                 .appendPath("api")
                 .appendPath("v1")
                 .appendPath("json")
                 .appendPath(BuildConfig.TSDB_API_KEY)
                 .appendPath("eventsnextleague.php")
-                .appendQueryParameter("id", leagueId)
+                .appendQueryParameter("id", leagueMain)
                 .build()
                 .toString()
     }

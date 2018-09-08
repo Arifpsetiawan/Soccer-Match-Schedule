@@ -15,7 +15,7 @@ class DetailPresenter(val view: DetailView) {
                     TeamResonse::class.java).teams
 
             uiThread {
-                team?.let { view.showTeamEmblem(it[0]) }
+                team?.let { view.showTeamLogo(it[0]) }
             }
         }
     }
